@@ -1,0 +1,16 @@
+{
+  "name": "nodejs_khtn",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "GitHub": "https://github.com/nndkhoa/ltweb2.cd2016.1",
+    "GitLab": "https://gitlab.com/thongnguyendev",
+    "MyGitHub": "https://github.com/GITLEANHVU/nodejs_khtn.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "leanhvu",
+  "license": "ISC"
+}
