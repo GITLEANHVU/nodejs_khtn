@@ -7,15 +7,43 @@ const pool = mysql.createPool(config.poolConfig);
 module.exports = {
     load: function (sql) {
         return new Promise((resolve, reject) => {
-            pool.query(sql, (err, results) => {
+            pool.query(sql, (err, results, fields) => {
                 if (err) return reject(err);
                 resolve(results);
             });
         });
-        
-    }
+    },
+    add: function (table, entity) {
+        const sql = `INSERT INTO ${table} SET ?`;
+        return new Promise((resolve, reject) => {
+            pool.query(sql ,entity, (err, results, fields) => {
+                if (err) return reject(err);
+                resolve(results);
+            });
+        })
+    },
+    patch: function (table, entity, condition) {
+        const sql = `UPDATE ${table} SET ? WHERE ?`;
+        return new Promise((resolve, reject) => {
+            pool.query(sql ,[entity, condition], (err, results) => {
+                if (err) return reject(err);
+                resolve(results);
+            });
+        })
+    },
+    del: function (table, condition) {
+        const sql = `DELETE FROM ${table} WHERE ?`;
+        return new Promise((resolve, reject) => {
+            pool.query(sql , condition, (err, results) => {
+                if (err) return reject(err);
+                resolve(results);
+            });
+        })
+    },
+
 }
 
+// txtCategoryName
 
 // module.exports = {
 //     load: function (sql, fn_done, fn_fail) {

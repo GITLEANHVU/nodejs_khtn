@@ -1,0 +1,3 @@
+/edit?id=1 => queryString => req.query.id
+/edit/1 =>params => req.params.id
+/edit?id=1 => queryString => req.query.id

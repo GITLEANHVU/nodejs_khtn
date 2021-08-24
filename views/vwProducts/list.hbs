@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-header h4">
+        Products
+    </div>
+    {{#if this.empty}}
+    <div class="card-body">
+        <div class="card-text">Không có dữ liệu</div>
+    </div>
+    {{else}}
+
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each this.products}}
+                <tr>
+                    <th scope="row">{{ProID}}</th>
+                    <td>{{ProName}}</td>
+                    <td>{{Price}}</td>
+                    <td>{{Quantity}}</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-primary btn-sm" role="button">
+                            <span class="material-icons" style="font-size: 1.2rem;">edit</span>
+                        </a>
+                        <a href="#" class="btn btn-danger btn-sm" role="button">
+                            <span class="material-icons" style="font-size: 1.2rem;">delete</span>
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    {{/if}}
+
+
+
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>

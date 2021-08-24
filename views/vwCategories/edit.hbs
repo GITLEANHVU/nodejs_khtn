@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-header h4">
+        Edit Category
+    </div>
+
+    <div class="card-body">
+        <form method="post">
+
+            <div class="form-group">
+                <label for="txtCategoryID">Category Name</label>
+                <input readonly type="text" class="form-control mt-3" name="CatID" id="txtCategoryID"
+                    value="{{this.category.CatID}}">
+            </div>
+
+            <div class="form-group">
+                <label for="txtCategoryName">Category Name</label>
+                <input type="text" class="form-control mt-3" name="CatName" id="txtCategoryName" autofocus
+                    value="{{this.category.CatName}}">
+            </div>
+
+            <a href="/admin/categories" class="btn btn-warning btn-sm mt-4"
+                style="display: inline-flex; width: fit-content; align-items: center;" title="Back to list">
+                <span class="material-icons " style="color: #fff;">fast_rewind</span>
+            </a>
+
+            <button formaction="/admin/categories/del" type="submit" class="btn btn-danger btn-sm mt-4" title="Remove category"
+                style="display: inline-flex; width: fit-content; align-items: center;">
+                <span class="material-icons">delete</span>
+                <span>Delete</span>
+            </button>
+
+            <button formaction="/admin/categories/update" type="submit" class="btn btn-primary btn-sm mt-4" title="Save changed"
+                style="display: inline-flex; width: fit-content; align-items: center;">
+                <span class="material-icons">check</span>
+                <span>Save</span>
+            </button>
+
+        </form>
+    </div>
+
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
