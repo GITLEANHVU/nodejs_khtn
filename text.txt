@@ -1,3 +1,12 @@
 /edit?id=1 => queryString => req.query.id
 /edit/1 =>params => req.params.id
 /edit?id=1 => queryString => req.query.id
+
+style for button or tag link:" btn "
+style="display: inline-flex; width: fit-content; align-items: center;"
+
+style="font-size: 1.2rem;"
+
+SELECT c.*, COUNT(p.ProID) AS num_of_products
+FROM categories c LEFT JOIN products p ON c.CatID = p.CatID
+GROUP BY c.CatID, c.CatName

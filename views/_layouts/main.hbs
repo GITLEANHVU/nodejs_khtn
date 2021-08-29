@@ -14,6 +14,8 @@
 
     <!-- Google Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    {{{_sections.css}}}
 </head>
 
 <body>
@@ -27,13 +29,19 @@
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-header">
-                            Featured
+                            Categories
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="list-group list-group-flush">
+                            {{#each lcCategories}}
+                            <a href="/products/byCat/{{CatID}}"
+                                class="list-group-item list-group-item-action{{#if isActive}} active {{/if}}">
+                                <span> {{CatName}}</span>
+
+                                {{#if num_of_products}}
+                                <span class="badge rounded-pill bg-danger float-end">{{num_of_products}}</span>
+                                {{/if}}
+                            </a>
+                            {{/each}}
                         </div>
                     </div>
                     <div class="card mt-3">
@@ -56,14 +64,18 @@
     </main>
 
     <footer id="footer" class="shadow-lg p-3 bg-body rounded">
-        <h2 class="text-center">&copy;Footer</h2>
+        <h2 class="text-center">&copy; Footer</h2>
     </footer>
+
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    {{!-- Jquery 3.6.0 --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    {{{_sections.js}}}
 </body>
 
 </html>

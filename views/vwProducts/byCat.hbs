@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-header h4">Products</div>
+    {{!-- {{#if this.empty}} --}}
+    <div class="card-body">
+        <div class="card-text">Không có dữ liệu</div>
+    </div>
+    {{!-- {{else}} --}}
+    <div class="card-body">
+        <div class="row">
+            {{#each this.products}}
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <img src="/public/imgs/sp/{{ProID}}/main_thumbs.jpg" alt="{{ProName}}"
+                        title="{{ProName}}: {{format_number Price}}">
+                    <div class="card-body">
+                        <div class="card-title h5">{{ProName}}</div>
+                        <div class="card-title h6 text-danger">{{format_number Price}}</div>
+                        <p class="card-text">{{TinyDes}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a style="display: inline-flex; width: fit-content; align-items: center;"
+                            class="btn btn-outline-primary btn-sm" href="javascript:;" role="button">
+                            <span class="material-icons" style="font-size: 1.2rem; margin-right: 4px">visibility</span>
+                            <span>Details</span>
+                        </a>
+                        <a style="display: inline-flex; width: fit-content; align-items: center;"
+                            class="btn btn-outline-success btn-sm" href="javascript:;" role="button">
+                            <span class="material-icons"
+                                style="font-size: 1.2rem; margin-right: 4px">shopping_cart</span>
+                            <span>Add to cart</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <nav aria-label="paginate products">
+            <ul class="pagination">
+                <li class="page-item {{#unless is_disabled_prev}} disabled {{/unless}}">
+                    <a class="page-link" href="?page={{prev_value}}">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                {{#each this.page_items}}
+
+                {{#if isActive}}
+                <li class="page-item active" aria-current="page">
+                    <span class="page-link">{{value}}</span>
+                </li>
+                {{else}}
+                <li class="page-item {{#if isDisabled}} disabled {{/if}}">
+                    <a class="page-link" href="?page={{value}}">{{value}}</a>
+                </li>
+                {{/if}}
+
+                {{/each}}
+                <li class="page-item {{#unless is_disabled_next}} disabled {{/unless}}">
+                    <a class="page-link" href="?page={{next_value}}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {{!-- {{/if}} --}}
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>

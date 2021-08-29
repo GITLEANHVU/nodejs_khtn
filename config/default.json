@@ -13,5 +13,11 @@
         "password" : "",
         "database" : "qlbh",
         "connectionLimit" : 20
+    },
+    "pagination": {
+        "limit" : 6
+    },
+    "authentication": {
+        "saltRounds": 8
     }
 }

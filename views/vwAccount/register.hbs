@@ -1,0 +1,94 @@
+{{!-- sections for Register page --}}
+{{#section "css"}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"
+    integrity="sha512-f0tzWhCwVFS3WeYaofoLWkTP62ObhewQ1EZn65oSYDZUg1+CyywGKkWzm8BxaJj5HGKI72PnMH9jYyIFz+GH7g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{/section}}
+
+{{#section "js"}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
+    integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $('#txtDOB').datetimepicker({
+        format: 'd/m/Y',
+        timepicker: false,
+        mask: true,
+    });
+
+    $('#frmRegister').on('submit', function (e) {
+        e.preventDefault();
+        validate();
+        {
+            {
+                !-- if (validate()) {
+                    $('#frmRegister').off('submit').submit();
+                } --}
+        }
+    });
+
+    function validate() {
+        const username = $('#txtUsername').val();
+        $.getJSON(`/account/test?username=${username}`, function (data) {
+            if (data === true) {
+                $('#frmRegister').off('submit').submit();
+            } else {
+                console.log("Nhap lai username!");
+            }
+        });
+    }
+
+</script>
+
+{{/section}}
+
+<div class="card">
+    <div class="card-header h4">
+        Register
+    </div>
+
+    <div class="card-body">
+        <form method="post" action="" id="frmRegister">
+            <div class="form-group">
+                <label for="txtUsername">Username</label>
+                <input type="text" class="form-control mt-3" name="username" id="txtUsername" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="txtPassword">Password</label>
+                <input type="password" class="form-control mt-3" name="password" id="txtPassword" autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="txtConfirm">Confirm</label>
+                <input type="password" class="form-control mt-3" name="confirm" id="txtConfirm" Confirm="confirm">
+            </div>
+
+            <div class="form-group">
+                <label for="txtName">Name</label>
+                <input type="text" class="form-control mt-3" name="name" id="txtName">
+            </div>
+
+            <div class="form-group">
+                <label for="txtEmail">Email</label>
+                <input type="text" class="form-control mt-3" name="email" id="txtEmail">
+            </div>
+
+            <div class="form-group">
+                <label for="txtDOB">DOB</label>
+                <input type="text" class="form-control mt-3" name="dob" id="txtDOB">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-sm mt-4"
+                style="display: inline-flex; width: fit-content; align-items: center;">
+                <span class="material-icons">check</span>
+                <span>Save</span>
+            </button>
+        </form>
+    </div>
+
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
