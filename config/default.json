@@ -1,23 +1,21 @@
 {
-    "mysqlConfig":{
-        "host": "localhost",
-        "port" : 3306,
-        "user" : "root",
-        "password" : "",
-        "database" : "qlbh"
-    },
-    "poolConfig":{
-        "host": "localhost",
-        "port" : 3306,
-        "user" : "root",
-        "password" : "",
-        "database" : "qlbh",
-        "connectionLimit" : 20
-    },
-    "pagination": {
-        "limit" : 6
-    },
-    "authentication": {
-        "saltRounds": 8
-    }
+  "mysqlConfig": {
+    "host": "mysql_db",
+    "user": "root",
+    "password": "",
+    "database": "qlbh"
+  },
+  "poolConfig": {
+    "host": "mysql_db",
+    "user": "root",
+    "password": "",
+    "database": "qlbh",
+    "connectionLimit": 20
+  },
+  "pagination": {
+    "limit": 6
+  },
+  "authentication": {
+    "saltRounds": 8
+  }
 }
